@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Client Pre-Form | Smart Gain Properties</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page styling (your branded section + strong overrides) -->
+  <style>
+    :root{
+      --sgp-green:#3A5A40;
+      --sgp-green-soft:#DBE5DC;
+      --sgp-border:#d7dfd9;
+      --sgp-text:#1f2a24;
+    }
+
+    body{
+      margin:0;
+      background:#f7f8f7;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Arial, sans-serif;
+      color:var(--sgp-text);
+    }
+
+    .sgp-form-section{ padding:64px 16px; }
+    .sgp-form-wrap{ max-width:820px; margin:0 auto; }
+
+    .sgp-form-heading{
+      margin:0 0 6px;
+      font-size:30px;
+      font-weight:700;
+      color:var(--sgp-green);
+    }
+    .sgp-form-subheading{
+      margin:0 0 28px;
+      font-size:15px;
+      color:#444;
+      max-width:680px;
+    }
+
+    /* ===== Zoho form overrides =====
+       (We override Zoho’s defaults WITHOUT removing their required code)
+    */
+    .sgp-zoho-form #crmWebToEntityForm.zcwf_lblLeft{
+      max-width:680px !important;
+      margin:0 !important;
+      padding:32px !important;
+      background:#fff !important;
+      border:1px solid var(--sgp-border) !important;
+      border-radius:16px !important;
+      box-shadow:0 10px 30px rgba(0,0,0,0.06) !important;
+      color:var(--sgp-text) !important;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Arial, sans-serif !important;
+    }
+
+    .sgp-zoho-form #crmWebToEntityForm *{
+      box-sizing:border-box !important;
+      font-family: inherit !important;
+    }
+
+    /* Use our page title instead of Zoho title */
+    .sgp-zoho-form .zcwf_title{ display:none !important; }
+
+    /* Labels above inputs (clean + mobile friendly) */
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_lab{
+      width:100% !important;
+      float:none !important;
+      padding:0 !important;
+      margin:0 0 6px 0 !important;
+      font-weight:600 !important;
+      font-size:13px !important;
+      color:var(--sgp-text) !important;
+    }
+
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_fld{
+      width:100% !important;
+      float:none !important;
+      padding:0 !important;
+      margin:0 !important;
+    }
+
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_row{ margin:16px 0 !important; }
+
+    /* Inputs */
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_fld input[type=text],
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_fld input[type=password],
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_fld textarea{
+      width:100% !important;
+      border:1px solid var(--sgp-border) !important;
+      border-radius:10px !important;
+      padding:12px !important;
+      font-size:14px !important;
+      outline:none !important;
+    }
+
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_fld input[type=text]:focus,
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_fld textarea:focus{
+      border-color:var(--sgp-green) !important;
+      box-shadow:0 0 0 4px rgba(58,90,64,0.12) !important;
+    }
+
+    /* Select */
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_col_fld_slt{
+      width:100% !important;
+      border:1px solid var(--sgp-border) !important;
+      border-radius:10px !important;
+      padding:10px 12px !important;
+      font-size:14px !important;
+      background:#fff !important;
+    }
+
+    /* Buttons */
+    .sgp-zoho-form .zcwf_lblLeft .zcwf_button{
+      border-radius:10px !important;
+      padding:12px 16px !important;
+      font-size:14px !important;
+      border:1px solid var(--sgp-border) !important;
+      background:#fff !important;
+      cursor:pointer !important;
+      max-width:none !important;
+    }
+
+    .sgp-zoho-form .zcwf_lblLeft .formsubmit.zcwf_button{
+      background:var(--sgp-green) !important;
+      border-color:var(--sgp-green) !important;
+      color:#fff !important;
+      font-weight:700 !important;
+    }
+
+    .sgp-zoho-form .zcwf_lblLeft .formsubmit.zcwf_button:hover{
+      filter:brightness(0.95) !important;
+    }
+
+    @media(max-width:600px){
+      .sgp-form-section{ padding:40px 14px; }
+      .sgp-zoho-form #crmWebToEntityForm.zcwf_lblLeft{ padding:22px !important; border-radius:14px !important; }
+      .sgp-form-heading{ font-size:26px; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="sgp-form-section">
+    <div class="sgp-form-wrap">
+      <h1 class="sgp-form-heading">Client Pre-Form</h1>
+      <p class="sgp-form-subheading">
+        Share a few details so we can tailor your strategy and keep everything moving smoothly.
+      </p>
+
+      <div class="sgp-zoho-form">
+        <!-- ======================= ZOHO PROVIDED CODE (PASTED IN FULL) ======================= -->
+        <!-- Note :
+           - You can modify the font style and form style to suit your website.
+           - Code lines with comments Do not remove this code are required for the form to work properly, make sure that you do not remove these lines of code.
+           - The Mandatory check script can modified as to suit your business needs.
+           - It is important that you test the modified form before going live.
+           - Do not remove captcha and other form elements that are necessary for the form to work.  -->
+        <div id = 'crmWebToEntityForm' class = 'zcwf_lblLeft crmWebToEntityForm' style = 'background-color: white;color: black;max-width: 600px;'>
+          <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+          <META HTTP-EQUIV = 'content-type' CONTENT = 'text/html;charset=UTF-8'>
+          <form id = 'webform87102000001742027' action = 'https://crm.zoho.com.au/crm/WebToContactForm' name = WebToContacts87102000001742027 method = 'POST' onSubmit = 'javascript:document.charset="UTF-8"; return checkMandatory87102000001742027()' accept-charset = 'UTF-8'>
+            <input type = 'text' style = 'display:none;' name = 'xnQsjsdp' value = 'e7570396c5adc33a2137bf1b8243f594091be900c9136cd416939329a679d7b6'>
+            </input>
+            <input type = 'hidden' name = 'zc_gad' id = 'zc_gad' value = ''>
+            </input>
+            <input type = 'text' style = 'display:none;' name = 'xmIwtLD' value = '60fa38416272fc74d8cf45b7f8f94f1e0fe70143de6ce77654bb790ba82eb0380778a9db37d00ad2e51e3c440b9f47ae'>
+            </input>
+            <input type = 'text' style = 'display:none;' name = 'actionType' value = 'Q29udGFjdHM='>
+            </input>
+            <input type = 'text' style = 'display:none;' name = 'returnURL' value = 'https&#x3a;&#x2f;&#x2f;smartgainproperties.com.au&#x2f;'>
+            </input>
+            <!-- Do not remove this code. -->
+            <style>
+              html,body{
+                margin: 0px;
+              }
+              .formsubmit.zcwf_button{
+                color: white !important;
+                background: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);
+              }
+              #crmWebToEntityForm.zcwf_lblLeft{
+                width: 100%;
+                padding: 25px;
+                margin: 0 auto;
+                box-sizing: border-box;
+              }
+              #crmWebToEntityForm.zcwf_lblLeft *{
+                box-sizing: border-box;
+              }
+              #crmWebToEntityForm {text-align: left;
+              }
+              #crmWebToEntityForm *{
+              direction: ltr;
+              }
+              .zcwf_lblLeft .zcwf_title{
+              word-wrap: break-word;
+              padding: 0px 6px 10px;
+              font-weight: bold }
+              .zcwf_lblLeft.cpT_primaryBtn:hover{
+              background: linear-gradient(#02acff 0,#006be4 100%)no-repeat padding-box !important;
+              box-shadow: 0 -2px 0 0  #0159b9 inset !important;
+              border: 0 !important;
+              color:  #fff !important;
+              outline: 0 !important;
+              }
+              .zcwf_lblLeft .zcwf_col_fld input[ type  = text], input[ type  = password], .zcwf_lblLeft .zcwf_col_fld textarea{
+              width: 60%;
+              border: 1px solid  #c0c6cc !important;
+              resize: vertical;
+              border-radius: 2px;
+              float: left;
+              }
+              .zcwf_lblLeft .zcwf_col_lab{
+              width: 30%;
+              word-break: break-word;
+              padding: 0px 6px 0px;
+              margin-right: 10px;
+              margin-top: 5px;
+              float: left;
+              min-height: 1px;
+              }
+              .zcwf_lblLeft .zcwf_col_fld{
+              float: left;
+              width: 68%;
+              padding: 0px 6px 0px;
+              position: relative;
+              margin-top: 5px;
+              }
+              .zcwf_lblLeft .zcwf_privacy {padding: 6px;
+              }
+              .zcwf_lblLeft .wfrm_fld_dpNn {display: none;
+              }
+              .dIB {display: inline-block;
+              }
+              .zcwf_lblLeft .zcwf_col_fld_slt{
+              width: 60%;
+              border: 1px solid  #ccc;
+              background:  #fff;
+              border-radius: 4px;
+              font-size: 13px;
+              float: left;
+              resize: vertical;
+              padding: 2px 5px;
+              }
+              .zcwf_lblLeft .zcwf_row:after, .zcwf_lblLeft .zcwf_col_fld:after{
+              content: '';
+              display: table;
+              clear: both;
+              }
+              .zcwf_lblLeft .zcwf_col_help{
+              float: left;
+              margin-left: 7px;
+              font-size: 13px;
+              max-width: 35%;
+              word-break: break-word;
+              }
+              .zcwf_lblLeft .zcwf_help_icon{
+              cursor: pointer;
+              width: 16px;
+              height: 16px;
+              display: inline-block;
+              background:  #fff;
+              border: 1px solid  #c0c6cc;
+              color:  #c1c1c1;
+              text-align: center;
+              font-size: 11px;
+              line-height: 16px;
+              font-weight: bold;
+              border-radius: 50%;
+              }
+              .zcwf_lblLeft .zcwf_row {margin: 15px 0px;
+              }
+              .zcwf_lblLeft .formsubmit{
+              margin-right: 5px;
+              cursor: pointer;
+              color:  #313949;
+              font-size: 13px;
+              }
+              .zcwf_lblLeft .zcwf_privacy_txt{
+              width: 90%;
+              color: rgb(0, 0, 0);
+              font-size: 13px;
+              font-family: Times New Roman;
+              display: inline-block;
+              vertical-align: top;
+              color:  #313949;
+              padding-top: 2px;
+              margin-left: 6px;
+              }
+              .zcwf_lblLeft .zcwf_button{
+              font-size: 13px;
+              color:  #313949;
+              border: 1px solid  #c0c6cc;
+              padding: 3px 9px;
+              border-radius: 4px;
+              cursor: pointer;
+              max-width: 120px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              }
+              .zcwf_lblLeft .zcwf_tooltip_over{
+              position: relative;
+              }
+              .zcwf_lblLeft .zcwf_tooltip_ctn{
+              position: absolute;
+              background:  #dedede;
+              padding: 3px 6px;
+              top: 3px;
+              border-radius: 4px;
+              word-break: break-word;
+              min-width: 100px;
+              max-width: 150px;
+              color:  #313949;
+              z-index: 100;
+              }
+              .zcwf_lblLeft .zcwf_ckbox{
+              float: left;
+              }
+              .zcwf_lblLeft .zcwf_file{
+              width: 55%;
+              box-sizing: border-box;
+              float: left;
+              }
+              .cBoth:after{
+              content: '';
+              display: block;
+              clear: both;
+              }
+              @media all and  (max-width: 600px){
+              .zcwf_lblLeft .zcwf_col_lab, .zcwf_lblLeft .zcwf_col_fld{
+              width: auto;
+              float: none !important;
+              }
+              .zcwf_lblLeft .zcwf_col_help {width: 40%;
+              }
+              }
+            </style>
+
+            <div class = 'zcwf_title' style = 'max-width: 600px;color: black; font-family:Times New Roman;'>Client Pre-Form</div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'First_Name'>First Name
+                  <span style = 'color:red;'>*</span>
+                </label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' id = 'First_Name' aria-required = 'true' aria-label = 'First Name' name = 'First Name' aria-valuemax = '40' maxlength = '40'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'Last_Name'>Last Name
+                  <span style = 'color:red;'>*</span>
+                </label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' id = 'Last_Name' aria-required = 'true' aria-label = 'Last Name' name = 'Last Name' aria-valuemax = '80' maxlength = '80'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'Mobile'>Mobile</label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' id = 'Mobile' aria-required = 'false' aria-label = 'Mobile' name = 'Mobile' aria-valuemax = '30' maxlength = '30'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'Email'>Email</label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'Email' aria-required = 'false' aria-label = 'Email' name = 'Email' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'CONTACTCF1'>Address</label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' id = 'CONTACTCF1' aria-required = 'false' aria-label = 'CONTACTCF1' name = 'CONTACTCF1' aria-valuemax = '255' maxlength = '255'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'CONTACTCF6'>Is there a 2nd Client ?
+                  <span style = 'color:red;'>*</span>
+                </label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <select class = 'zcwf_col_fld_slt' role = 'combobox' aria-expanded = 'false' aria-haspopup = 'listbox' id = 'CONTACTCF6' onChange = 'addAriaSelected87102000001742027()' aria-required = 'true' aria-label = 'CONTACTCF6' name = 'CONTACTCF6'>
+                  <option value = '-None-'>-None-</option>
+                  <option selected value = 'Yes'>Yes</option>
+                  <option value = 'No'>No</option>
+                </select>
+                <div class = 'zcwf_col_help'>
+                  <span title = 'Yes if you&#x27;re buying with your partner' style = 'cursor: pointer; width: 16px; height: 16px; display: inline-block; background: #fff; border: 1px solid #c0c6cc; color: #c1c1c1; text-align: center; font-size: 11px; line-height: 16px; font-weight: bold; border-radius: 50%;' onclick = 'tooltipShow87102000001742027(this)'>?</span>
+                  <div class = 'zcwf_tooltip_over' style = 'display: none;'>
+                    <span class = 'zcwf_tooltip_ctn'>Yes if you&#x27;re buying with your partner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'CONTACTCF3'>Client Name_2</label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' id = 'CONTACTCF3' aria-required = 'false' aria-label = 'CONTACTCF3' name = 'CONTACTCF3' aria-valuemax = '255' maxlength = '255'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'CONTACTCF5'>Email_2</label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'CONTACTCF5' aria-required = 'false' aria-label = 'CONTACTCF5' name = 'CONTACTCF5' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
+                <label for = 'CONTACTCF4'>Mobile_2</label>
+              </div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' id = 'CONTACTCF4' aria-required = 'false' aria-label = 'CONTACTCF4' name = 'CONTACTCF4' aria-valuemax = '30' maxlength = '30'>
+                </input>
+                <div class = 'zcwf_col_help'></div>
+              </div>
+            </div>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab' id = 'reCaptchaField' style = 'font-size:13px; font-family: Times New Roman;'>Enter the Captcha</div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'text' id = 'captchaField87102000001742027' aria-labelledby = 'reCaptchaField' aria-valuemax = '10' maxlength = '10' name = 'enterdigest'/>
+              </div>
+            </div>
+
+            <!-- Do not remove this code. -->
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab'></div>
+              <div class = 'zcwf_col_fld'>
+                <img id = 'imgid87102000001742027' src = 'https://crm.zoho.com.au/crm/CaptchaServlet?formId=60fa38416272fc74d8cf45b7f8f94f1e0fe70143de6ce77654bb790ba82eb0380778a9db37d00ad2e51e3c440b9f47ae&grpid=e7570396c5adc33a2137bf1b8243f594091be900c9136cd416939329a679d7b6'>
+                <a href = 'javascript:;' onclick = 'reloadImg87102000001742027();'>Reload</a>
+              </div>
+              <div class = ''></div>
+            </div>
+
+            <input type = 'text' type = 'hidden' style = 'display: none;' name = 'aG9uZXlwb3Q' value = ''/>
+
+            <div class = 'zcwf_row'>
+              <div class = 'zcwf_col_lab'></div>
+              <div class = 'zcwf_col_fld'>
+                <input type = 'submit' id = 'formsubmit' role = 'button' class = 'formsubmit zcwf_button' value = 'Submit' aria-label = 'Submit' title = 'Submit'>
+                <input type = 'reset' class = 'zcwf_button' role = 'button' name = 'reset' value = 'Reset' aria-label = 'Reset' title = 'Reset'>
+              </div>
+            </div>
+
+            <script>
+              function addAriaSelected87102000001742027(){
+                var optionElem = event.target;
+                var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
+                if (previousSelectedOption) {
+                  previousSelectedOption.removeAttribute('aria-selected');
+                }
+                optionElem.querySelectorAll('option') [optionElem.selectedIndex] .ariaSelected = 'true';
+              }
+              /* Do not remove this code. */
+              function reloadImg87102000001742027(){
+                var captcha = document.getElementById('imgid87102000001742027');
+                if (captcha.src.indexOf ('&d') !== -1) {
+                  captcha.src = captcha.src.substring(0, captcha.src.indexOf('&d')) + '&d' + new Date().getTime();
+                } else {
+                  captcha.src = captcha.src + '&d' + new Date().getTime();
+                }
+              }
+              function historyBack87102000001742027(){
+                document.querySelector('.crmWebToEntityForm .formsubmit').removeAttribute('disabled');
+                reloadImg87102000001742027();
+                window.removeEventListener('focus', historyBack87102000001742027);
+              }
+              function validateEmail87102000001742027(){
+                var form = document.forms['WebToContacts87102000001742027'];
+                var emailFld = form.querySelectorAll('[ftype=email]');
+                var i;
+                for(i = 0; i < emailFld.length; i++ ) {
+                  var emailVal = emailFld[i].value;
+                  if ((emailVal.replace (/^\s+|\s+$/g,'') ) .length != 0) {
+                    var atpos = emailVal.indexOf('@');
+                    var dotpos = emailVal.lastIndexOf('.');
+                    if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+                      alert('Please enter a valid email address. ');
+                      emailFld[i].focus();
+                      return false;
+                    }
+                  }
+                }
+                return true;
+              }
+              function checkMandatory87102000001742027(){
+                var mndFileds = new Array('First Name', 'Last Name', 'CONTACTCF6');
+                var fldLangVal = new Array('First\x20Name', 'Last\x20Name', 'Is\x20there\x20a\x202nd\x20Client\x20\x3F');
+                for (i = 0; i < mndFileds.length; i++ ) {
+                  var fieldObj = document.forms['WebToContacts87102000001742027'] [mndFileds[i]];
+                  if (fieldObj) {
+                    if(((fieldObj.value) .replace (/^\s+|\s+$/g,'') ) .length == 0) {
+                      if (fieldObj.type == 'file') {
+                        alert('Please select a file to upload.');
+                        fieldObj.focus();
+                        return false;
+                      }
+                      alert(fldLangVal[i] + ' cannot be empty.');
+                      fieldObj.focus();
+                      return false;
+                    } else if (fieldObj.nodeName == 'SELECT') {
+                      if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
+                        alert(fldLangVal[i] + ' cannot be none.');
+                        fieldObj.focus();
+                        return false;
+                      }
+                    } else if (fieldObj.type == 'checkbox') {
+                      if (fieldObj.checked == false) {
+                        alert('Please accept  ' + fldLangVal[i]);
+                        fieldObj.focus();
+                        return false;
+                      }
+                    }
+                    try{
+                      if (fieldObj.name == 'Last Name') {
+                        name = fieldObj.value;
+                      }
+                    } catch (e){}
+                  }
+                }
+                if ( !validateEmail87102000001742027 () ) {
+                  return false;
+                }
+                var urlparams = new URLSearchParams(window.location.search);
+                if (urlparams.has ('service') && (urlparams.get ('service') === 'smarturl') ) {
+                  var webform = document.getElementById('webform87102000001742027');
+                  var service = urlparams.get('service');
+                  var smarturlfield = document.createElement('input');
+                  smarturlfield.setAttribute('type', 'hidden');
+                  smarturlfield.setAttribute('value', service);
+                  smarturlfield.setAttribute('name', 'service');
+                  webform.appendChild(smarturlfield);
+                }
+                document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+                window.addEventListener('focus', historyBack87102000001742027);
+              }
+              function tooltipShow87102000001742027(el){
+                var tooltip = el.nextElementSibling;
+                var tooltipDisplay = tooltip.style.display;
+                if (tooltipDisplay == 'none') {
+                  var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+                  for (i = 0; i < allTooltip.length; i++ ) {
+                    allTooltip[i].style.display = 'none';
+                  }
+                  tooltip.style.display = 'block';
+                } else {
+                  tooltip.style.display = 'none';
+                }
+              }
+            </script>
+
+            <!-- Do not remove this --- Analytics Tracking code starts -->
+            <script id = 'wf_anal' src = 'https://crm.zohopublic.com.au/crm/WebFormAnalyticsServeServlet?rid=84fd285ff178d9acbfa8ce2c8dd5483bdf5a0abdb8ac4432127bfd6e737d92fc27dfce611c15841d65ae0221d520aba7gide4d37e2f8701d6b24b0061b48e9365556fa4ad17ee0ec407f7c02a41d07edc8dgida1887981585bbbf729ccdfde86d507a29b20f5fdb0a768cc1c79cbe769e6f8b7gid1679f81c5d252f3c2efc1ae46af740e1442077a63d80a917066e3d3f18a3dec0&tw=ae1a47067352da1e45cda60f73b7e64fc649edde9bf90bbcbdc3438285c9912f'>
+            </script>
+            <!-- Do not remove this --- Analytics Tracking code ends. -->
+          </form>
+
+          <!-- Do not remove this code. -->
+          <iframe name = 'captchaFrame' style = 'display:none;'></iframe>
+        </div>
+        <!-- ======================= END ZOHO PROVIDED CODE ======================= -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra behaviour: hide Client 2 fields unless "Yes" -->
+  <script>
+    (function(){
+      const ddl = document.getElementById('CONTACTCF6'); // Is there a 2nd Client?
+      const rowIds = ['CONTACTCF3','CONTACTCF5','CONTACTCF4']; // Client Name_2, Email_2, Mobile_2
+
+      function rowByFieldId(fieldId){
+        const el = document.getElementById(fieldId);
+        return el ? el.closest('.zcwf_row') : null;
+      }
+
+      function toggleClient2(){
+        const show = ddl && ddl.value === 'Yes';
+        rowIds.forEach(id => {
+          const row = rowByFieldId(id);
+          if (row) row.style.display = show ? '' : 'none';
+        });
+      }
+
+      if (ddl){
+        ddl.addEventListener('change', toggleClient2);
+        toggleClient2();
+      }
+    })();
+  </script>
+</body>
+</html>
