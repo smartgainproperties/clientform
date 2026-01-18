@@ -777,7 +777,7 @@
 
             <div class = 'zcwf_row'>
               <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
-                <label for = 'CONTACTCF3'>Client Name_2</label>
+                <label for = 'CONTACTCF3'>Client Name</label>
               </div>
               <div class = 'zcwf_col_fld'>
                 <input type = 'text' id = 'CONTACTCF3' aria-required = 'false' aria-label = 'CONTACTCF3' name = 'CONTACTCF3' aria-valuemax = '255' maxlength = '255'>
@@ -788,7 +788,7 @@
 
             <div class = 'zcwf_row'>
               <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
-                <label for = 'CONTACTCF5'>Email_2</label>
+                <label for = 'CONTACTCF5'>Email</label>
               </div>
               <div class = 'zcwf_col_fld'>
                 <input type = 'text' ftype = 'email' autocomplete = 'false' id = 'CONTACTCF5' aria-required = 'false' aria-label = 'CONTACTCF5' name = 'CONTACTCF5' aria-valuemax = '100' crmlabel = '' maxlength = '100'>
@@ -799,7 +799,7 @@
 
             <div class = 'zcwf_row'>
               <div class = 'zcwf_col_lab' style = 'font-size:13px; font-family: Times New Roman;'>
-                <label for = 'CONTACTCF4'>Mobile_2</label>
+                <label for = 'CONTACTCF4'>Mobile</label>
               </div>
               <div class = 'zcwf_col_fld'>
                 <input type = 'text' id = 'CONTACTCF4' aria-required = 'false' aria-label = 'CONTACTCF4' name = 'CONTACTCF4' aria-valuemax = '30' maxlength = '30'>
@@ -959,14 +959,14 @@
   <!-- SPG Footer - matching calculator design -->
   <footer class="sgp-footer">
     <div class="sgp-footer-logo">Smart Gain Properties</div>
-    <div>Strategic property investment for wealth creation</div>
+    <div>Trusted Guidance. Transparent Insights. Tailored Strategy.</div>
   </footer>
 
   <!-- Extra behaviour: hide Client 2 fields unless "Yes" -->
   <script>
     (function(){
       const ddl = document.getElementById('CONTACTCF6'); // Is there a 2nd Client?
-      const rowIds = ['CONTACTCF3','CONTACTCF5','CONTACTCF4']; // Client Name_2, Email_2, Mobile_2
+      const rowIds = ['CONTACTCF3','CONTACTCF5','CONTACTCF4']; // Client Name, Email, Mobile (2nd client)
 
       function rowByFieldId(fieldId){
         const el = document.getElementById(fieldId);
